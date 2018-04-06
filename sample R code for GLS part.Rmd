@@ -14,13 +14,13 @@ knitr::opts_chunk$set(echo = False
 library(nlme)
 library(dplyr)
 library(broom)
-setwd("~/documents/academia/Ernst lab/LPS TLR mouse")
+setwd("~/LPS TLR mouse")
 lps<-read.delim("LPS_324protein_matrix107mod.txt", header=TRUE)
 ```
 
 ## Data set cleaning and restructuring
 
-# Omitted
+### Omitted
 
 ## generalized least squares procedure 
 
@@ -44,7 +44,7 @@ for(i in 1:n[1])
 ```
 
 ## P value adjustment and magnitude sorting
-# Omitted at the moment
+### Omitted at the moment
 
 ## output files
-# Omitted at the moment
+### Omitted at the moment

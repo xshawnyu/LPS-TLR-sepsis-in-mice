@@ -1,0 +1,50 @@
+---
+title: "partial R code for LPS group"
+author: "Xiang Yu"
+date: "April 1, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = False
+```
+
+
+```{r lps}
+library(nlme)
+library(dplyr)
+library(broom)
+setwd("~/documents/academia/Ernst lab/LPS TLR mouse")
+lps<-read.delim("LPS_324protein_matrix107mod.txt", header=TRUE)
+```
+
+## Data set cleaning and restructuring
+
+# Omitted
+
+## generalized least squares procedure 
+
+```{r intensity, echo=FALSE}
+for(i in 1:n[1])
+{
+   tempX <- data.frame(X[ID==i,])
+   attach(tempX)
+   model <- gls(model=intensity ~ factor(time), data=tempX, correlation = corAR1(form = ~ 1 | Subject))
+   fit[i,1] <- summary(model)$tTable[1,1]
+   fit[i,2] <- summary(model)$tTable[1,4]
+   fit[i,3] <- summary(model)$tTable[2,1]
+   fit[i,4] <- summary(model)$tTable[2,4]
+   fit[i,5] <- summary(model)$tTable[3,1]
+   fit[i,6] <- summary(model)$tTable[3,4]
+   fit[i,7] <- summary(model)$tTable[4,1]
+   fit[i,8] <- summary(model)$tTable[4,4]
+   fit[i,9] <- summary(model)$AIC
+   detach(tempX)
+}
+```
+
+## P value adjustment and magnitude sorting
+# Omitted at the moment
+
+## output files
+# Omitted at the moment

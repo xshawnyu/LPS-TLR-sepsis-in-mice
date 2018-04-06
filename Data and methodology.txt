@@ -1,0 +1,7 @@
+Data and Methodology
+Data sets were exported from the MaxQuant software for each experimental group,  LPS, PBS, and TLR. Each data set has 4 time points, 
+0, 6, 12, and 18 hours. Sample size is 3 for each group at time point 0, 6, and 12 hours; 3 for 18 hours in LPS set and 1 for 18 hours 
+in PBS and TLR sets. Given the nature of this experiment, which included repeated measures and multiple comparisons, the log-transformed
+ raw measurements were analyzed via generalized least squares procedure in R package nlme, using time as a factor predictor. 
+The repeated measures were accounted by including covariance in the modeling and adjusted P values were computed by Benjamini-Hochberg 
+procedure to address the multiple comparison issue.  

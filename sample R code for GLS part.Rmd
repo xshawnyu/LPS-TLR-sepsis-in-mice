@@ -15,12 +15,31 @@ library(nlme)
 library(dplyr)
 library(broom)
 setwd("~/LPS TLR mouse")
-lps<-read.delim("LPS_324protein_matrix107mod.txt", header=TRUE)
+LPS<-read.delim("LPS_324protein_matrix107mod.txt", header=TRUE)
 ```
 
 ## Data set cleaning and restructuring
 
-### Omitted
+
+```{{r setting factors, echo=FALSE}}
+n <- dim(LPS)
+t <- 4
+ID <- rep(1:n[1],3*t)
+Subject <- rep(c(rep(1,n[1]), rep(2,n[1]), rep(4,n[1])),t)
+protein_ID <- LPS$Protein.IDs
+time <- c(rep(0,3*n[1]), rep(6,3*n[1]), rep(12,3*n[1]), rep(18,3*n[1]))
+intensity <- matrix(NA,nrow=n[1]*(3*t),ncol=1)
+fit       <- matrix(NA,nrow=n[1],    ncol=9)
+for(i in 1:(3*t))
+{
+   start <- (i-1)*n[1]+1
+   end   <-  i*n[1]
+   LPS[,i] <- as.numeric(LPS[,i])
+   intensity[start:end,1] <- as.numeric(LPS[,i])
+}
+
+```
+
 
 ## generalized least squares procedure 
 

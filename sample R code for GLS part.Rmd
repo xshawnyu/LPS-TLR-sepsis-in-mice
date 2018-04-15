@@ -65,5 +65,5 @@ for(i in 1:n[1])
 ## P value adjustment and magnitude sorting
 ### Omitted at the moment
 
-## output files
+## Table and graphic output files
 ### Omitted at the moment
